@@ -172,6 +172,14 @@ $(function () {
     uiStorage.plusCostAmount.html(packageCostPerMonth.plusUSDAnnual);
     uiStorage.growCostAmount.html(packageCostPerMonth.growUSDAnnual);
 
+    //set up initial value of cost for pricing comparison page
+    //default to show USD Annual Per Month Price
+    uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDAnnual);
+    uiStorage.pricingTableAmountPro.html(packageCostPerMonth.proUSDAnnual);
+    uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDAnnual);
+    uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDAnnual);
+
+
     //set up initial value to show Only Show on Annual Content
     //also hide only show on monthly content
     uiStorage.showOnAnnualContent.each(function () {
@@ -434,10 +442,10 @@ $(function () {
 
 
                 //updating cost amount label on pricing table
-                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDAnnual);
-                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proAUDAnnual);
-                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDAnnual);
-                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDAnnual);
+                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDMonthly);
+                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proAUDMonthly);
+                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDMonthly);
+                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDMonthly);
 
 
 
