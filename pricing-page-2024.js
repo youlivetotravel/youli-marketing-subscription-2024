@@ -44,6 +44,8 @@ $(function () {
 
         showOnAnnualContent: $(".show-on-annual"),
 
+        showOnMonthlyContent: $(".Show-on-monthly"),
+
 
 
         //pricing table ui storage stuff
@@ -173,8 +175,13 @@ $(function () {
     uiStorage.growCostAmount.html(packageCostPerMonth.growUSDAnnual);
 
     //set up initial value to show Only Show on Annual Content
+    //also hide only show on monthly content
     uiStorage.showOnAnnualContent.each(function () {
         $(this).show();
+    });
+
+    uiStorage.showOnMonthlyContent.each(function () {
+        $(this).hide();
     });
 
     //radio button defaults is set in the designer via custom attribute
@@ -327,6 +334,10 @@ $(function () {
                     $(this).hide();
                 })
 
+                uiStorage.showOnMonthlyContent.each(function () {
+                    $(this).show();
+                })
+
             } else {
                 //alert("switch to annually");
                 uiStorage.liteCostAmount.html(packageCostPerMonth.liteUSDAnnual);
@@ -366,6 +377,10 @@ $(function () {
                 //since this is on annual, we want to show content that are SHOWN ON ANNUAL
                 uiStorage.showOnAnnualContent.each(function () {
                     $(this).show();
+                })
+
+                uiStorage.showOnMonthlyContent.each(function () {
+                    $(this).hide();
                 })
             }
 
@@ -408,6 +423,10 @@ $(function () {
                     $(this).hide();
                 })
 
+                uiStorage.showOnMonthlyContent.each(function () {
+                    $(this).show();
+                })
+
 
             } else {
                 //alert("switch to annually");
@@ -448,6 +467,10 @@ $(function () {
                 //this is on annual so we need to show content that's only shown on annual
                 uiStorage.showOnAnnualContent.each(function () {
                     $(this).show();
+                })
+
+                uiStorage.showOnMonthlyContent.each(function () {
+                    $(this).hide();
                 })
             }
 
