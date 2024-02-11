@@ -174,7 +174,7 @@ $(function () {
 
     //set up initial value to show Only Show on Annual Content
     uiStorage.showOnAnnualContent.each(function () {
-        $*(this).show();
+        $(this).show();
     });
 
     //radio button defaults is set in the designer via custom attribute
