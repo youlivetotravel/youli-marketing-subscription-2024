@@ -10,10 +10,10 @@ $(function () {
         currencyTextLeft: $(".package-left-currency"),
 
 
-        liteCostAmountLeft: $("#lite-cost-amount-left"),
-        proCostAmountLeft: $("#pro-cost-amount-left"),
-        plusCostAmountLeft: $("#plus-cost-amount-left"),
-        growCostAmountLeft: $("#grow-cost-amount-left"),
+        liteCostAmountLeft: $(".lite-cost-amount-left"),
+        proCostAmountLeft: $(".pro-cost-amount-left"),
+        plusCostAmountLeft: $(".plus-cost-amount-left"),
+        growCostAmountLeft: $(".grow-cost-amount-left"),
 
         liteCostAmount: $("#lite-cost-amount"),
         proCostAmount: $("#pro-cost-amount"),
@@ -138,10 +138,18 @@ $(function () {
     //setup initial value of cost
     //containing cost amount label for desktop view and mobile view on the left panel
     //default to show USD Annual Per Month Price
-    uiStorage.liteCostAmountLeft.html(packageCostPerMonth.liteUSDAnnual);
-    uiStorage.proCostAmountLeft.html(packageCostPerMonth.proUSDAnnual);
-    uiStorage.plusCostAmountLeft.html(packageCostPerMonth.plusUSDAnnual);
-    uiStorage.growCostAmountLeft.html(packageCostPerMonth.growUSDAnnual);
+    uiStorage.liteCostAmountLeft.each(function () {
+        $(this).html(packageCostPerMonth.liteUSDAnnual);
+    });
+    uiStorage.proCostAmountLeft.each(function () {
+        $(this).html(packageCostPerMonth.proUSDAnnual);
+    });
+    uiStorage.plusCostAmountLeft.each(function () {
+        $(this).html(packageCostPerMonth.plusUSDAnnual);
+    });
+    uiStorage.growCostAmountLeft.each(function () {
+        $(this).html(packageCostPerMonth.growUSDAnnual);
+    });
 
 
     //set up initial value of cost for desktop switch card
@@ -269,10 +277,18 @@ $(function () {
 
 
                 //updating cost amount label on the left hand side
-                uiStorage.liteCostAmountLeft.html(packageCostPerMonth.liteUSDMonthly);
-                uiStorage.proCostAmountLeft.html(packageCostPerMonth.proUSDMonthly);
-                uiStorage.plusCostAmountLeft.html(packageCostPerMonth.plusUSDMonthly);
-                uiStorage.growCostAmountLeft.html(packageCostPerMonth.growUSDMonthly);
+                uiStorage.liteCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.liteUSDMonthly);
+                });
+                uiStorage.proCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.proUSDMonthly);
+                });
+                uiStorage.plusCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.plusUSDMonthly);
+                });
+                uiStorage.growCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.growUSDMonthly);
+                });
 
             } else {
                 //alert("switch to annually");
@@ -283,10 +299,18 @@ $(function () {
 
 
                 //updating cost amount label on the left hand side
-                uiStorage.liteCostAmountLeft.html(packageCostPerMonth.liteUSDAnnual);
-                uiStorage.proCostAmountLeft.html(packageCostPerMonth.proUSDAnnual);
-                uiStorage.plusCostAmountLeft.html(packageCostPerMonth.plusUSDAnnual);
-                uiStorage.growCostAmountLeft.html(packageCostPerMonth.growUSDAnnual);
+                uiStorage.liteCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.liteUSDAnnual);
+                });
+                uiStorage.proCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.proUSDAnnual);
+                });
+                uiStorage.plusCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.plusUSDAnnual);
+                });
+                uiStorage.growCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.growUSDAnnual);
+                });
             }
 
             uiStorage.currencyText.each(function () {
