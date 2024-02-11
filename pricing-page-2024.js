@@ -44,7 +44,7 @@ $(function () {
 
         showOnAnnualContent: $(".show-on-annual"),
 
-        showOnMonthlyContent: $(".Show-on-monthly"),
+        showOnMonthlyContent: $(".show-on-monthly"),
 
 
 
