@@ -50,11 +50,10 @@ $(function () {
 
         //pricing table ui storage stuff
         //amount in the table header
-        pricingTableAmountLite: $("#pricing-table-amount-explorer"),
-        pricingTablAmountePro: $("#pricing-table-amount-byo"),
-        pricingTableAmountPlus: $("#pricing-table-amount-pnp"),
-        //new label for venture
-        pricingTableAmountGrow: $("#pricing-table-amount-venture"),
+        pricingTableAmountLite: $("#pricing-table-amount-lite"),
+        pricingTablAmountePro: $("#pricing-table-amount-pro"),
+        pricingTableAmountPlus: $("#pricing-table-amount-plus"),
+        pricingTableAmountGrow: $("#pricing-table-amount-grow"),
 
         //currency in the table header
         pricingTableCurrency: $(".pricing-table-currency"),
@@ -166,7 +165,6 @@ $(function () {
         $(this).html(packageCostPerMonth.growUSDAnnual);
     });
 
-
     //set up initial value of cost for desktop switch card
     //default to show USD Annual Per Month Price
     uiStorage.liteCostAmount.html(packageCostPerMonth.liteUSDAnnual);
@@ -195,7 +193,7 @@ $(function () {
     // uiStorage.packageCardLeftPNP.hide();
     // uiStorage.packageCardLeftEnterprise.hide();
 
-    //set up booking fees on left and right
+    //set up booking fees on left and right and on pricing table
     uiStorage.pricingRightBookingFeeTextLite.each(function () {
         $(this).html(bookingFeeLabel.liteBookingFee);
     });
@@ -330,6 +328,14 @@ $(function () {
                     $(this).html(packageCostPerMonth.growUSDMonthly);
                 });
 
+
+                //updating cost amount label on pricing table
+                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDMonthly);
+                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proUSDMonthly);
+                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDMonthly);
+                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDMonthly);
+
+
                 uiStorage.showOnAnnualContent.each(function () {
                     $(this).hide();
                 })
@@ -360,7 +366,13 @@ $(function () {
                     $(this).html(packageCostPerMonth.growUSDAnnual);
                 });
 
-                // setup annual billing amount billed annually
+                //updating cost amount label on pricing table
+                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDAnnual);
+                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proUSDAnnual);
+                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDAnnual);
+                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDAnnual);
+
+                // setup annual billing amount billed annually on both pricing and pricing comparison page
                 uiStorage.packageCostAmountPerYearLite.each(function(){
                     $(this).html(packageCostAmountPerYear.liteUSDPerYear);
                 });
@@ -373,6 +385,7 @@ $(function () {
                 uiStorage.packageCostAmountPerYearGrow.each(function(){
                     $(this).html(packageCostAmountPerYear.growUSDPerYear);
                 });
+
 
                 //since this is on annual, we want to show content that are SHOWN ON ANNUAL
                 uiStorage.showOnAnnualContent.each(function () {
@@ -419,6 +432,15 @@ $(function () {
                     $(this).html(packageCostPerMonth.growAUDMonthly);
                 });
 
+
+                //updating cost amount label on pricing table
+                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDAnnual);
+                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proAUDAnnual);
+                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDAnnual);
+                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDAnnual);
+
+
+
                 uiStorage.showOnAnnualContent.each(function () {
                     $(this).hide();
                 })
@@ -449,7 +471,14 @@ $(function () {
                     $(this).html(packageCostPerMonth.growAUDAnnual);
                 });
 
-                // setup annual billing amount billed annually AUD
+                //updating cost amount label on pricing table
+                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDAnnual);
+                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proAUDAnnual);
+                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDAnnual);
+                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDAnnual);
+
+
+                // setup annual billing amount billed annually AUD for both pricing page and pricing comparison page
                 uiStorage.packageCostAmountPerYearLite.each(function(){
                     $(this).html(packageCostAmountPerYear.liteAUDPerYear);
                 });
@@ -484,11 +513,7 @@ $(function () {
             
         }
 
-        updatePricingTable();
-        if (calculatorResult != null) {
-            showCalculatorResult();
-            // console.log('cost switch is called');
-        }
+       // updatePricingTable();
     }
 
 
