@@ -127,14 +127,6 @@ $(function () {
         currencyAUD: "A$"
     }
 
-    var billingFrequencyAnnual;
-
-    var uiColorSet = {
-        formErrorBorderColor: "#a94442",
-        formNormalBorderColor: "#c7d0d5"
-    }
-
-
 
 
     //set initial values on UI elements
@@ -524,60 +516,6 @@ $(function () {
        // updatePricingTable();
     }
 
-
-
-    var updatePricingTable = function () {
-        //switching to usd
-
-        if (uiStorage.currencySelectField.val().toLowerCase() === "usd") {
-            //alert(uiStorage.currencySelectField.val());
-            if (uiStorage.billingCheckbox.is(':checked')) {
-                //switch to monthly
-
-                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDMonthly);
-                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proUSDMonthly);
-                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDMonthly);
-                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDMonthly);
-
-
-            } else {
-                //alert("switch to annually");
-                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDAnnual);
-                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proUSDAnnual);
-                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDAnnual);
-                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDAnnual);
-
-            }
-
-            uiStorage.pricingTableCurrency.each(function () {
-                $(this).html(currencyTextAndSign.currencyUSD);
-            });
-        } else {
-
-
-            //switching to aud
-            if (uiStorage.billingCheckbox.is(':checked')) {
-                //alert("switch to monthly");
-                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDMonthly);
-                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proAUDMonthly);
-                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDMonthly);
-                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDMonthly);
-
-            } else {
-                //alert("switch to annually");
-                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDAnnual);
-                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proAUDAnnual);
-                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDAnnual);
-                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDAnnual);
-
-
-            }
-
-            uiStorage.pricingTableCurrency.each(function () {
-                $(this).html(currencyTextAndSign.currencyAUD);
-            });
-        }
-    }
 
 });
 
