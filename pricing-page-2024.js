@@ -42,7 +42,7 @@ $(function () {
         pricingRightBookingFeeTextGrow: $(".booking-fee-text-grow"),
         pricingRightBookingFeeTextEnterprise: $(".booking-fee-text-enterprise"),
 
-        showOnAnnualContent: $(".Show-on-annual"),
+        showOnAnnualContent: $(".show-on-annual"),
 
 
 
