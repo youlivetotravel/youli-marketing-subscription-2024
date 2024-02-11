@@ -9,7 +9,9 @@ $(function () {
         currencyText: $(".currency-class-identifier"),
         currencyTextLeft: $(".package-left-currency"),
 
-
+        // it's important that we use class selector here
+        // and use .each function as there are multiple places we need 
+        // to update the price, because 
         liteCostAmountLeft: $(".lite-cost-amount-left"),
         proCostAmountLeft: $(".pro-cost-amount-left"),
         plusCostAmountLeft: $(".plus-cost-amount-left"),
@@ -19,6 +21,11 @@ $(function () {
         proCostAmount: $("#pro-cost-amount"),
         plusCostAmount: $("#plus-cost-amount"),
         growCostAmount: $("#grow-cost-amount"),
+
+        packageCostAmountPerYearLite: $(".package-cost-amount-per-year.lite"),
+        packageCostAmountPerYearPro: $(".package-cost-amount-per-year.pro"),
+        packageCostAmountPerYearPlus: $(".package-cost-amount-per-year.plus"),
+        packageCostAmountPerYearGrow: $(".package-cost-amount-per-year.grow"),
 
 
         packageSelectionRadioButton: $(".package-card-radio-button"),
@@ -34,6 +41,9 @@ $(function () {
         pricingRightBookingFeeTextPlus: $(".booking-fee-text-plus"),
         pricingRightBookingFeeTextGrow: $(".booking-fee-text-grow"),
         pricingRightBookingFeeTextEnterprise: $(".booking-fee-text-enterprise"),
+
+        showOnAnnualContent: $(".Show-on-annual"),
+
 
 
         //pricing table ui storage stuff
@@ -97,7 +107,7 @@ $(function () {
 
 
     //2024
-    var packageCostPerYear = {
+    var packageCostAmountPerYear = {
         liteUSDPerYear: "216",
         liteAUDPerYear: "226",
 
@@ -122,6 +132,9 @@ $(function () {
         formErrorBorderColor: "#a94442",
         formNormalBorderColor: "#c7d0d5"
     }
+
+
+
 
     //set initial values on UI elements
     uiStorage.billingCheckbox.prop('checked', false);
@@ -159,6 +172,10 @@ $(function () {
     uiStorage.plusCostAmount.html(packageCostPerMonth.plusUSDAnnual);
     uiStorage.growCostAmount.html(packageCostPerMonth.growUSDAnnual);
 
+    //set up initial value to show Only Show on Annual Content
+    uiStorage.showOnAnnualContent.each(function () {
+        $*(this).show();
+    });
 
     //radio button defaults is set in the designer via custom attribute
     //packageSelectionRadioButton: $(".package-card-radio-button"),
@@ -166,7 +183,7 @@ $(function () {
 
     uiStorage.packageCardLeftLite.show();
     //the display of the rest are set in the designer
-    //because those are hidden on desktop but shown on mobile 
+    //because those are hidden on desktop but shown on mobile !
     // uiStorage.packageCardLeftBYO.hide();
     // uiStorage.packageCardLeftPNP.hide();
     // uiStorage.packageCardLeftEnterprise.hide();
@@ -186,6 +203,22 @@ $(function () {
     });
     uiStorage.pricingRightBookingFeeTextEnterprise.each(function () {
         $(this).html(bookingFeeLabel.enterpriseBookingFee);
+    });
+
+
+    //set up initial value of billed annual cost
+    //default is annual usd
+    uiStorage.packageCostAmountPerYearLite.each(function(){
+        $(this).html(packageCostAmountPerYear.liteUSDPerYear);
+    });
+    uiStorage.packageCostAmountPerYearPro.each(function(){
+        $(this).html(packageCostAmountPerYear.proUSDPerYear);
+    });
+    uiStorage.packageCostAmountPerYearPlus.each(function(){
+        $(this).html(packageCostAmountPerYear.plusUSDPerYear);
+    });
+    uiStorage.packageCostAmountPerYearGrow.each(function(){
+        $(this).html(packageCostAmountPerYear.growUSDPerYear);
     });
 
     //end of initial value setup
@@ -290,6 +323,10 @@ $(function () {
                     $(this).html(packageCostPerMonth.growUSDMonthly);
                 });
 
+                uiStorage.showOnAnnualContent.each(function () {
+                    $(this).hide();
+                })
+
             } else {
                 //alert("switch to annually");
                 uiStorage.liteCostAmount.html(packageCostPerMonth.liteUSDAnnual);
@@ -311,6 +348,25 @@ $(function () {
                 uiStorage.growCostAmountLeft.each(function () {
                     $(this).html(packageCostPerMonth.growUSDAnnual);
                 });
+
+                // setup annual billing amount billed annually
+                uiStorage.packageCostAmountPerYearLite.each(function(){
+                    $(this).html(packageCostAmountPerYear.liteUSDPerYear);
+                });
+                uiStorage.packageCostAmountPerYearPro.each(function(){
+                    $(this).html(packageCostAmountPerYear.proUSDPerYear);
+                });
+                uiStorage.packageCostAmountPerYearPlus.each(function(){
+                    $(this).html(packageCostAmountPerYear.plusUSDPerYear);
+                });
+                uiStorage.packageCostAmountPerYearGrow.each(function(){
+                    $(this).html(packageCostAmountPerYear.growUSDPerYear);
+                });
+
+                //since this is on annual, we want to show content that are SHOWN ON ANNUAL
+                uiStorage.showOnAnnualContent.each(function () {
+                    $(this).show();
+                })
             }
 
             uiStorage.currencyText.each(function () {
@@ -348,6 +404,10 @@ $(function () {
                     $(this).html(packageCostPerMonth.growAUDMonthly);
                 });
 
+                uiStorage.showOnAnnualContent.each(function () {
+                    $(this).hide();
+                })
+
 
             } else {
                 //alert("switch to annually");
@@ -369,6 +429,26 @@ $(function () {
                 uiStorage.growCostAmountLeft.each(function () {
                     $(this).html(packageCostPerMonth.growAUDAnnual);
                 });
+
+                // setup annual billing amount billed annually AUD
+                uiStorage.packageCostAmountPerYearLite.each(function(){
+                    $(this).html(packageCostAmountPerYear.liteAUDPerYear);
+                });
+                uiStorage.packageCostAmountPerYearPro.each(function(){
+                    $(this).html(packageCostAmountPerYear.proAUDPerYear);
+                });
+                uiStorage.packageCostAmountPerYearPlus.each(function(){
+                    $(this).html(packageCostAmountPerYear.plusAUDPerYear);
+                });
+                uiStorage.packageCostAmountPerYearGrow.each(function(){
+                    $(this).html(packageCostAmountPerYear.growAUDPerYear);
+                });
+
+
+                //this is on annual so we need to show content that's only shown on annual
+                uiStorage.showOnAnnualContent.each(function () {
+                    $(this).show();
+                })
             }
 
             uiStorage.currencyText.each(function () {
@@ -378,6 +458,7 @@ $(function () {
             uiStorage.currencyTextLeft.each(function () {
                 $(this).html(currencyTextAndSign.currencyAUD);
             });
+            
         }
 
         updatePricingTable();
