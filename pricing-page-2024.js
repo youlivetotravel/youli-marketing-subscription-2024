@@ -10,69 +10,39 @@ $(function () {
         currencyTextLeft: $(".package-left-currency"),
 
 
-        //cost amount array
-        //containing cost amount label for desktop view and mobile view
-        explorerCostAmountLeft: $(".explorer-cost-amount-left"),
-        byoCostAmountLeft: $(".byo-cost-amount-left"),
-        pnpCostAmountLeft: $(".pnp-cost-amount-left"),
-        //new label for Venture
-        ventureCostAmountLeft: $(".venture-cost-amount-left"),
+        liteCostAmountLeft: $("#lite-cost-amount-left"),
+        proCostAmountLeft: $("#pro-cost-amount-left"),
+        plusCostAmountLeft: $("#plus-cost-amount-left"),
+        growCostAmountLeft: $("#grow-cost-amount-left"),
 
-
-        explorerCostAmount: $("#explorer-cost-amount"),
-        byoCostAmount: $("#byo-cost-amount"),
-        pnpCostAmount: $("#pnp-cost-amount"),
-        //new label for Venture
-        ventureCostAmount: $("#venture-cost-amount"),
+        liteCostAmount: $("#lite-cost-amount"),
+        proCostAmount: $("#pro-cost-amount"),
+        plusCostAmount: $("#plus-cost-amount"),
+        growCostAmount: $("#grow-cost-amount"),
 
 
         packageSelectionRadioButton: $(".package-card-radio-button"),
 
-        packageCardLeftExplorer: $(".pricing-left.explorer"),
-        packageCardLeftBYO: $(".pricing-left.byo"),
-        packageCardLeftPNP: $(".pricing-left.pnp"),
-        //new label for Venture
-        packageCardLeftVenture: $(".pricing-left.venture"),
+        packageCardLeftLite: $(".pricing-left.lite"),
+        packageCardLeftPro: $(".pricing-left.pro"),
+        packageCardLeftPlus: $(".pricing-left.plus"),
+        packageCardLeftGrow: $(".pricing-left.grow"),
         packageCardLeftEnterprise: $(".pricing-left.enterprise"),
 
-
-
-
-        //pricing page calculator stuff
-        calculatorBillingCheckbox: $("#calculator-billing-toggle"),
-        calculateButton: $("#calculator-form-calculate-button"),
-        calculatorCardBlank: $("#calculator-card-blank"),
-        calculatorCardSwappable: $("#calculator-package-swappable-block"),
-        calculatorRevenueInput: $("#calculator-revenue-input"),
-        calculatorNumberOfTeamInput: $("#calculator-number-of-team-input"),
-        calculatorWebsiteCheckbox: $("#calculator-website-checkbox"),
-        calculatorCrmCheckbox: $("#calculator-crm-checkbox"),
-        calculatorApiCheckbox: $("#calculator-api-access"),
-        calculatorPhoneSupportCheckbox: $("#calculator-phone-support"),
-
-        calculatorLottieExplorer: $("#calculator-lottie-explorer"),
-        calculatorLottieByo: $("#calculator-lottie-byo"),
-        calculatorLottiePnp: $("#calculator-lottie-pnp"),
-        calculatorLottieVenture: $("#calculator-lottie-venture"),
-        calculatorLottieEnterprise: $("#calculator-lottie-enterprise"),
-        calculatorPackageLabel: $("#calculator-package-label"),
-        calculatorCurrencyLabel: $("#calculator-currency-label"),
-        calculatorCost: $("#calculator-amount"),
-        calculatorBookingFee: $("#calculator-booking-fee"),
-        calculatorToggleDot: $("#calculator-toggle-dot"),
-        calculatorPerMonthText: $("#calculator-per-month-label"),
-        calculatorEnterpriseCallUsLabel: $("#calculator-enterprise-call-us-label"),
-        calculatorCardTransition: $("#calculator-card-transition"),
-        calculatorBillingBlock: $("#calculator-billing-block"),
+        pricingRightBookingFeeTextLite: $(".booking-fee-text-lite"),
+        pricingRightBookingFeeTextPro: $(".booking-fee-text-pro"),
+        pricingRightBookingFeeTextPlus: $(".booking-fee-text-plus"),
+        pricingRightBookingFeeTextGrow: $(".booking-fee-text-grow"),
+        pricingRightBookingFeeTextEnterprise: $(".booking-fee-text-enterprise"),
 
 
         //pricing table ui storage stuff
         //amount in the table header
-        pricingTableAmountExplorer: $("#pricing-table-amount-explorer"),
-        pricingTablAmounteByo: $("#pricing-table-amount-byo"),
-        pricingTableAmountPnp: $("#pricing-table-amount-pnp"),
+        pricingTableAmountLite: $("#pricing-table-amount-explorer"),
+        pricingTablAmountePro: $("#pricing-table-amount-byo"),
+        pricingTableAmountPlus: $("#pricing-table-amount-pnp"),
         //new label for venture
-        pricingTableAmountVenture: $("#pricing-table-amount-venture"),
+        pricingTableAmountGrow: $("#pricing-table-amount-venture"),
 
         //currency in the table header
         pricingTableCurrency: $(".pricing-table-currency"),
@@ -84,55 +54,62 @@ $(function () {
     };
 
     var bookingFeeLabel = {
-        explorerBookingFee: "+3% booking fees",
-        byoBookingFee: "+1% booking fees",
-        pnpBookingFee: "+1% booking fees",
-        //new label for Venture
-        ventureBookingFee: "+0.5% booking fees",
-        enterpriseBookingFee: "0% booking fees & more"
+        liteBookingFee: "+2% platform booking fee",
+        proBookingFee: "+1% platform booking fee",
+        plusBookingFee: "+1% platform booking fee",
+        growBookingFee: "+1% platform booking fee ",
+        enterpriseBookingFee: "0% platform booking fee"
 
     }
 
     var packageNameText = {
-        explorer: "explorer",
-        byo: "pro byo website",
-        pnp: "Pro+ Website",
-        //new label for Venture
-        venture: "Venture",
-        enterprise: "enterprise"
+        light: "Lite",
+        pro: "Pro",
+        plus: "Plus",
+        grow: "Grow",
+        enterprise: "Enterprise"
     }
 
-    var calculatorResult;
-    var calculatorResultOptions = {
-        explorer: "explorer",
-        byo: "byo",
-        pnp: "pnp",
-        venture: "venture",
-        enterprise: "enterprise"
-    }
 
+
+    //2024
     var packageCostPerMonth = {
-        explorerUSDAnnual: "0",
-        explorerUSDMonthly: "0",
-        explorerAUDAnnual: "0",
-        explorerAUDMonthly: "0",
+        liteUSDAnnual: "18",
+        liteUSDMonthly: "20",
+        liteAUDAnnual: "28",
+        liteAUDMonthly: "30",
 
-        byoUSDAnnual: "55",
-        byoUSDMonthly: "60",
-        byoAUDAnnual: "73",
-        byoAUDMonthly: "80",
+        proUSDAnnual: "55",
+        proUSDMonthly: "60",
+        proAUDAnnual: "75",
+        proAUDMonthly: "80",
 
-        pnpUSDAnnual: "73",
-        pnpUSDMonthly: "80",
-        pnpAUDAnnual: "100",
-        pnpAUDMonthly: "110",
+        plusUSDAnnual: "90",
+        plusUSDMonthly: "99",
+        plusAUDAnnual: "127",
+        plusAUDMonthly: "139",
 
-        //new label for Venture
-        ventureUSDAnnual: "400",
-        ventureUSDMonthly: "450",
-        ventureAUDAnnual: "567",
-        ventureAUDMonthly: "640"
+        growUSDAnnual: "164",
+        growUSDMonthly: "179",
+        growAUDAnnual: "238",
+        growAUDMonthly: "259"
     };
+
+
+    //2024
+    var packageCostPerYear = {
+        liteUSDPerYear: "216",
+        liteAUDPerYear: "226",
+
+        proUSDPerYear: "660",
+        proAUDPerYear: "900",
+
+        plusUSDPerYear: "1080",
+        plusAUDPerYear: "1524",
+
+        growUSDPerYear: "1968",
+        growAUDPerYear: "2856",
+    }
 
     var currencyTextAndSign = {
         currencyUSD: "US$",
@@ -160,44 +137,49 @@ $(function () {
 
     //setup initial value of cost
     //containing cost amount label for desktop view and mobile view on the left panel
-    uiStorage.explorerCostAmountLeft.each(function () {
-        $(this).html(packageCostPerMonth.explorerUSDAnnual);
-    });
-    uiStorage.byoCostAmountLeft.each(function () {
-        $(this).html(packageCostPerMonth.byoUSDAnnual);
-    });
-    uiStorage.pnpCostAmountLeft.each(function () {
-        $(this).html(packageCostPerMonth.pnpUSDAnnual);
-    });
-    uiStorage.ventureCostAmountLeft.each(function () {
-        $(this).html(packageCostPerMonth.ventureUSDAnnual);
-    })
+    //default to show USD Annual Per Month Price
+    uiStorage.liteCostAmountLeft.html(packageCostPerMonth.liteUSDAnnual);
+    uiStorage.proCostAmountLeft.html(packageCostPerMonth.proUSDAnnual);
+    uiStorage.plusCostAmountLeft.html(packageCostPerMonth.plusUSDAnnual);
+    uiStorage.growCostAmountLeft.html(packageCostPerMonth.growUSDAnnual);
+
 
     //set up initial value of cost for desktop switch card
-    uiStorage.explorerCostAmount.html(packageCostPerMonth.explorerUSDAnnual);
-    uiStorage.byoCostAmount.html(packageCostPerMonth.byoUSDAnnual);
-    uiStorage.pnpCostAmount.html(packageCostPerMonth.pnpUSDAnnual);
-    uiStorage.ventureCostAmount.html(packageCostPerMonth.ventureUSDAnnual);
+    //default to show USD Annual Per Month Price
+    uiStorage.liteCostAmount.html(packageCostPerMonth.liteUSDAnnual);
+    uiStorage.proCostAmount.html(packageCostPerMonth.proUSDAnnual);
+    uiStorage.plusCostAmount.html(packageCostPerMonth.plusUSDAnnual);
+    uiStorage.growCostAmount.html(packageCostPerMonth.growUSDAnnual);
 
 
     //radio button defaults is set in the designer via custom attribute
     //packageSelectionRadioButton: $(".package-card-radio-button"),
 
 
-    uiStorage.packageCardLeftExplorer.show();
+    uiStorage.packageCardLeftLite.show();
     //the display of the rest are set in the designer
     //because those are hidden on desktop but shown on mobile 
     // uiStorage.packageCardLeftBYO.hide();
     // uiStorage.packageCardLeftPNP.hide();
     // uiStorage.packageCardLeftEnterprise.hide();
 
+    //set up booking fees on left and right
+    uiStorage.pricingRightBookingFeeTextLite.each(function () {
+        $(this).html(bookingFeeLabel.liteBookingFee);
+    });
+    uiStorage.pricingRightBookingFeeTextPro.each(function () {
+        $(this).html(bookingFeeLabel.proBookingFee);
+    });
+    uiStorage.pricingRightBookingFeeTextPlus.each(function () {
+        $(this).html(bookingFeeLabel.plusBookingFee);
+    });
+    uiStorage.pricingRightBookingFeeTextGrow.each(function () {
+        $(this).html(bookingFeeLabel.growBookingFee);
+    });
+    uiStorage.pricingRightBookingFeeTextEnterprise.each(function () {
+        $(this).html(bookingFeeLabel.enterpriseBookingFee);
+    });
 
-    //pricing page calculator stuff
-    uiStorage.calculatorBillingCheckbox.prop('checked', false);
-    uiStorage.calculatorCardBlank.show();
-    uiStorage.calculatorCardSwappable.hide();
-
-    uiStorage.calculatorErrorMessage.hide();
     //end of initial value setup
 
 
@@ -222,479 +204,47 @@ $(function () {
         cardSwitch();
     })
 
-
-
-
-    uiStorage.calculateButton.click(function () {
-        showCalculatorResult();
-    })
-
-    var calculatorErrorState = function () {
-        uiStorage.calculatorCardBlank.show();
-        uiStorage.calculatorCardSwappable.hide();
-        uiStorage.calculatorCardTransition.hide();
-        uiStorage.calculatorErrorMessage.show();
-    }
-
-    var showCalculatorResult = function () {
-        if (uiStorage.calculatorRevenueInput.val().length === 0 || uiStorage.calculatorNumberOfTeamInput.val().length === 0) {
-            if(uiStorage.calculatorRevenueInput.val().length === 0){
-                uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formErrorBorderColor);
-            }else{
-                uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formNormalBorderColor);
-            }
-            if(uiStorage.calculatorNumberOfTeamInput.val().length === 0){
-                uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formErrorBorderColor);
-            }else{
-                uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formNormalBorderColor);
-            }
-            calculatorErrorState();
-            return;
-        } else if (getRevenueInput() < 0 || getNumberOfTeam() < 0) {
-            if(getRevenueInput() < 0){
-                uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formErrorBorderColor);
-            }else{
-                uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formNormalBorderColor);
-            }
-            if(getNumberOfTeam() < 0){
-                uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formErrorBorderColor);
-            }else{
-                uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formNormalBorderColor);
-            }
-            calculatorErrorState();
-            return;
-        }
-
-
-        uiStorage.calculatorCardBlank.hide();
-        //hide card to show transition block
-        uiStorage.calculatorCardSwappable.hide();
-        uiStorage.calculatorErrorMessage.hide();
-        uiStorage.calculatorCardTransition.show();
-        uiStorage.calculatorRevenueInput.css("border-color", uiColorSet.formNormalBorderColor);
-        uiStorage.calculatorNumberOfTeamInput.css("border-color", uiColorSet.formNormalBorderColor);
-
-        setTimeout(function () {
-            uiStorage.calculatorCardTransition.hide();
-            uiStorage.calculatorCardSwappable.show();
-        }, 1000);
-
-        if (isPhoneSupportChecked()) {
-            showEnterpriseOnCalculator();
-
-
-        } else {
-            if (getNumberOfTeam() > 4) {
-                showEnterpriseOnCalculator();
-            } else if(getNumberOfTeam() >2){
-                console.log('etNumberOfTeam() >2');
-                showVentureOnCalculator();
-            }
-            else if (getNumberOfTeam() <= 2 && getNumberOfTeam() >= 0) {
-                if(isCrmChecked() || isApiChecked()){
-
-                    showVentureOnCalculator();
-                    return;
-                }
-
-                if (getRevenueInput() < 25000 && getRevenueInput() >= 0) {
-                    if (isWebsiteChecked()) {
-                        showPnpOnCalculator();
-                    } else {
-                        if(getNumberOfTeam() == 2){
-                            showByoOnCalculator();
-                        }else{
-                            showExplorerOnCalculator();
-                        }
-                    }
-                } else if (getRevenueInput() >= 25000 && getRevenueInput() < 572000) {
-                    if (isWebsiteChecked()) {
-                        showPnpOnCalculator();
-                    } else {
-                        showByoOnCalculator();
-                    }
-                } else if (getRevenueInput() < 1160000){
-                    showVentureOnCalculator();
-                }else{
-                    showEnterpriseOnCalculator();
-                }
-            }
-
-        }
-
-        //console.log("outter methods + " + console.log(uiStorage.calculatorCardSwappable.css("display")));
-    }
-
-
-    uiStorage.calculatorBillingCheckbox.change(function () {
-        if (uiStorage.calculatorBillingCheckbox.is(':checked')) {
-            uiStorage.billingCheckbox.prop('checked', true);
-            uiStorage.billingToggleDot.css({ float: "right" });
-            //console.log("calculator checked");
-        } else {
-            uiStorage.billingCheckbox.prop('checked', false);
-            //console.log(uiStorage.billingCheckbox.prop('checked'));
-
-            uiStorage.billingToggleDot.css({ float: "left" });
-            //console.log("calculator unchecked");
-        }
-
-        costSwitch();
-    })
-
-    var getRevenueInput = function () {
-        //console.log(uiStorage.calculatorRevenueInput.val());
-
-        return parseFloat(uiStorage.calculatorRevenueInput.val());
-    }
-
-    var getNumberOfTeam = function () {
-        //console.log(uiStorage.calculatorNumberOfTeamInput.val());
-        return parseFloat(uiStorage.calculatorNumberOfTeamInput.val());
-    }
-
-
-    var isWebsiteChecked = function () {
-        if (uiStorage.calculatorWebsiteCheckbox.is(':checked')) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    var isCrmApiPhoneSupportChecked = function () {
-        if (uiStorage.calculatorCrmCheckbox.is(':checked') || uiStorage.calculatorApiCheckbox.is(':checked') || uiStorage.calculatorPhoneSupportCheckbox.is(':checked')) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    var isCrmChecked = function(){
-        if (uiStorage.calculatorCrmCheckbox.is(':checked')){
-            return true;
-        }else {
-            return false;
-        }
-    }
-
-    var isApiChecked = function () {
-        if (uiStorage.calculatorApiCheckbox.is(':checked')){
-            return true;
-        }else {
-            return false;
-        }  
-    }
-
-    var isPhoneSupportChecked = function () {
-        if (uiStorage.calculatorPhoneSupportCheckbox.is(':checked')){
-            return true;
-        }else {
-            return false;
-        }  
-    }
-
-
-    var showExplorerOnCalculator = function () {
-        calculatorResult = calculatorResultOptions.explorer;
-
-        uiStorage.calculatorLottieExplorer.show();
-        uiStorage.calculatorLottieByo.hide();
-        uiStorage.calculatorLottiePnp.hide();
-        uiStorage.calculatorLottieVenture.hide();
-        uiStorage.calculatorLottieEnterprise.hide();
-
-        uiStorage.calculatorBillingBlock.show();
-
-
-        //set checkbox unchecked(annual)
-        //set initial state of toggle to left(annual)
-
-        checkBillingFrenquencyAnnual();
-
-        uiStorage.calculatorPackageLabel.html(packageNameText.explorer);
-
-        var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
-
-        switch (selectedCurrency) {
-            //select usd, initial state is annual cost
-            case 'usd':
-                uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
-                uiStorage.calculatorCost.html(!billingFrequencyAnnual ? packageCostPerMonth.explorerUSDAnnual : packageCostPerMonth.explorerUSDMonthly);
-                break;
-
-            //select aud, initial state is annual cost
-            case 'aud':
-                uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
-                uiStorage.calculatorCost.html(!billingFrequencyAnnual ? packageCostPerMonth.explorerAUDAnnual : packageCostPerMonth.explorerAUDMonthly);
-                break;
-
-            default:
-                alert("unexpected currency selected in the dropdown");
-        }
-
-        //alert("run after switch");
-        uiStorage.calculatorEnterpriseCallUsLabel.hide();
-        uiStorage.calculatorCurrencyLabel.show();
-        uiStorage.calculatorCost.show();
-        uiStorage.calculatorPerMonthText.show();
-        uiStorage.calculatorBookingFee.html(bookingFeeLabel.explorerBookingFee);
-
-    }
-
-    var showByoOnCalculator = function () {
-        calculatorResult = calculatorResultOptions.byo;
-
-        uiStorage.calculatorLottieExplorer.hide();
-        uiStorage.calculatorLottieByo.show();
-        uiStorage.calculatorLottiePnp.hide();
-        uiStorage.calculatorLottieVenture.hide();
-        uiStorage.calculatorLottieEnterprise.hide();
-
-        uiStorage.calculatorBillingBlock.show();
-
-        //set checkbox unchecked(annual)
-        //set initial state of toggle to left(annual)
-        checkBillingFrenquencyAnnual();
-
-
-        uiStorage.calculatorPackageLabel.html(packageNameText.byo);
-
-
-        var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
-
-        switch (selectedCurrency) {
-            //select usd, initial state is annual cost
-            case 'usd':
-                uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
-                uiStorage.calculatorCost.html(!billingFrequencyAnnual ? packageCostPerMonth.byoUSDAnnual : packageCostPerMonth.byoUSDMonthly);
-                break;
-
-            //select aud, initial state is annual cost
-            case 'aud':
-                uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
-                uiStorage.calculatorCost.html(!billingFrequencyAnnual ? packageCostPerMonth.byoAUDAnnual : packageCostPerMonth.byoAUDMonthly);
-                break;
-
-            default:
-                alert("unexpected currency selected in the dropdown");
-        }
-
-
-        uiStorage.calculatorEnterpriseCallUsLabel.hide();
-        uiStorage.calculatorCurrencyLabel.show();
-        uiStorage.calculatorCost.show();
-        uiStorage.calculatorPerMonthText.show();
-        uiStorage.calculatorBookingFee.html(bookingFeeLabel.byoBookingFee);
-    }
-
-    var showPnpOnCalculator = function () {
-        calculatorResult = calculatorResultOptions.pnp;
-
-        uiStorage.calculatorLottieExplorer.hide();
-        uiStorage.calculatorLottieByo.hide();
-        uiStorage.calculatorLottiePnp.show();
-        uiStorage.calculatorLottieVenture.hide();
-        uiStorage.calculatorLottieEnterprise.hide();
-
-        uiStorage.calculatorBillingBlock.show();
-
-        //set checkbox unchecked(annual)
-        //set initial state of toggle to left(annual)
-        checkBillingFrenquencyAnnual();
-
-        uiStorage.calculatorPackageLabel.html(packageNameText.pnp);
-
-        var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
-
-        switch (selectedCurrency) {
-            //select usd, initial state is annual cost
-            case 'usd':
-                uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
-                uiStorage.calculatorCost.html(!billingFrequencyAnnual ? packageCostPerMonth.pnpUSDAnnual : packageCostPerMonth.pnpUSDMonthly);
-                break;
-
-            //select aud, initial state is annual cost
-            case 'aud':
-                uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
-                uiStorage.calculatorCost.html(!billingFrequencyAnnual ? packageCostPerMonth.pnpAUDAnnual : packageCostPerMonth.pnpAUDMonthly);
-                break;
-
-            default:
-                alert("unexpected currency selected in the dropdown");
-        }
-
-
-        uiStorage.calculatorEnterpriseCallUsLabel.hide();
-        uiStorage.calculatorCurrencyLabel.show();
-        uiStorage.calculatorCost.show();
-        uiStorage.calculatorPerMonthText.show();
-        uiStorage.calculatorBookingFee.html(bookingFeeLabel.pnpBookingFee);
-
-    }
-
-
-    var showVentureOnCalculator = function () {
-        calculatorResult = calculatorResultOptions.venture;
-
-        uiStorage.calculatorLottieExplorer.hide();
-        uiStorage.calculatorLottieByo.hide();
-        uiStorage.calculatorLottiePnp.hide();
-        uiStorage.calculatorLottieVenture.show();
-        uiStorage.calculatorLottieEnterprise.hide();
-
-        uiStorage.calculatorBillingBlock.show();
-
-        //set checkbox unchecked(annual)
-        //set initial state of toggle to left(annual)
-        checkBillingFrenquencyAnnual();
-
-        uiStorage.calculatorPackageLabel.html(packageNameText.venture);
-
-        var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
-
-        switch (selectedCurrency) {
-            //select usd, initial state is annual cost
-            case 'usd':
-                uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyUSD);
-                uiStorage.calculatorCost.html(!billingFrequencyAnnual ? packageCostPerMonth.ventureUSDAnnual : packageCostPerMonth.ventureUSDMonthly);
-                break;
-
-            //select aud, initial state is annual cost
-            case 'aud':
-                uiStorage.calculatorCurrencyLabel.html(currencyTextAndSign.currencyAUD);
-                uiStorage.calculatorCost.html(!billingFrequencyAnnual ? packageCostPerMonth.ventureAUDAnnual : packageCostPerMonth.ventureAUDMonthly);
-                break;
-
-            default:
-                alert("unexpected currency selected in the dropdown");
-        }
-
-
-        uiStorage.calculatorEnterpriseCallUsLabel.hide();
-        uiStorage.calculatorCurrencyLabel.show();
-        uiStorage.calculatorCost.show();
-        uiStorage.calculatorPerMonthText.show();
-        uiStorage.calculatorBookingFee.html(bookingFeeLabel.ventureBookingFee);
-
-    }
-
-    var showEnterpriseOnCalculator = function () {
-        calculatorResult = calculatorResultOptions.enterprise;
-
-        uiStorage.calculatorLottieExplorer.hide();
-        uiStorage.calculatorLottieByo.hide();
-        uiStorage.calculatorLottiePnp.hide();
-        uiStorage.calculatorLottieVenture.hide();
-        uiStorage.calculatorLottieEnterprise.show();
-
-        uiStorage.calculatorBillingBlock.hide();
-
-        //set checkbox unchecked(annual)
-        //set initial state of toggle to left(annual)
-        checkBillingFrenquencyAnnual();
-
-        uiStorage.calculatorPackageLabel.html(packageNameText.enterprise);
-
-
-        //hide cost and currency label, show Call us label
-        uiStorage.calculatorEnterpriseCallUsLabel.show();
-        uiStorage.calculatorCurrencyLabel.hide();
-        uiStorage.calculatorCost.hide();
-        uiStorage.calculatorPerMonthText.hide();
-
-        var selectedCurrency = uiStorage.currencySelectField.val().toLowerCase();
-        uiStorage.calculatorBookingFee.html(bookingFeeLabel.enterpriseBookingFee);
-
-    }
-
-    var checkBillingFrenquencyAnnual = function () {
-        billingFrequencyAnnual = uiStorage.billingCheckbox.is(':checked') ? true : false;
-
-        // console.log('checkBillingFrequencyAnnual is    ' + uiStorage.billingCheckbox.prop('checked'));
-
-        //if billing block is switched to monthly
-        if (billingFrequencyAnnual) {
-
-            // if(uiStorage.calculatorBillingCheckbox.not(':checked')){
-            uiStorage.calculatorBillingCheckbox.prop('checked', true);
-            uiStorage.calculatorToggleDot.css({ float: "right" });
-            //     console.log("check billing frequency annual checked");
-
-            // }  
-
-        } else {
-            //if billing block is switched to annualy    
-            // if(uiStorage.calculatorBillingCheckbox.is(':checked')){
-            uiStorage.calculatorBillingCheckbox.prop('checked', false);
-            uiStorage.calculatorToggleDot.css({ float: "left" });
-            // console.log("check billing frequency annual unchecked");
-            // }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     var cardSwitch = function () {
 
         var checkedPackageCard = $("input[type='radio'][name='Package-card']:checked").val();
         switch (checkedPackageCard) {
-            case 'explorer':
-                uiStorage.packageCardLeftExplorer.show();
-                uiStorage.packageCardLeftBYO.hide();
-                uiStorage.packageCardLeftPNP.hide();
-                uiStorage.packageCardLeftVenture.hide();
+            case 'lite':
+                uiStorage.packageCardLeftLite.show();
+                uiStorage.packageCardLeftPro.hide();
+                uiStorage.packageCardLeftPlus.hide();
+                uiStorage.packageCardLeftGrow.hide();
                 uiStorage.packageCardLeftEnterprise.hide();
                 break;
 
-            case 'byo':
-                uiStorage.packageCardLeftExplorer.hide();
-                uiStorage.packageCardLeftBYO.show();
-                uiStorage.packageCardLeftPNP.hide();
-                uiStorage.packageCardLeftVenture.hide();
+            case 'pro':
+                uiStorage.packageCardLeftLite.hide();
+                uiStorage.packageCardLeftPro.show();
+                uiStorage.packageCardLeftPlus.hide();
+                uiStorage.packageCardLeftGrow.hide();
                 uiStorage.packageCardLeftEnterprise.hide();
                 break;
 
-            case 'pnp':
-                uiStorage.packageCardLeftExplorer.hide();
-                uiStorage.packageCardLeftBYO.hide();
-                uiStorage.packageCardLeftPNP.show();
-                uiStorage.packageCardLeftVenture.hide();
+            case 'plus':
+                uiStorage.packageCardLeftLite.hide();
+                uiStorage.packageCardLeftPro.hide();
+                uiStorage.packageCardLeftPlus.show();
+                uiStorage.packageCardLeftGrow.hide();
                 uiStorage.packageCardLeftEnterprise.hide();
                 break;
 
-            case 'venture':
-                uiStorage.packageCardLeftExplorer.hide();
-                uiStorage.packageCardLeftBYO.hide();
-                uiStorage.packageCardLeftPNP.hide();
-                uiStorage.packageCardLeftVenture.show();
+            case 'grow':
+                uiStorage.packageCardLeftLite.hide();
+                uiStorage.packageCardLeftPro.hide();
+                uiStorage.packageCardLeftPlus.hide();
+                uiStorage.packageCardLeftGrow.show();
                 uiStorage.packageCardLeftEnterprise.hide();
                 break;
 
             case 'enterprise':
-                uiStorage.packageCardLeftExplorer.hide();
-                uiStorage.packageCardLeftBYO.hide();
-                uiStorage.packageCardLeftPNP.hide();
-                uiStorage.packageCardLeftVenture.hide();
+                uiStorage.packageCardLeftLite.hide();
+                uiStorage.packageCardLeftPro.hide();
+                uiStorage.packageCardLeftPlus.hide();
+                uiStorage.packageCardLeftGrow.hide();
                 uiStorage.packageCardLeftEnterprise.show();
                 break;
             default:
@@ -712,50 +262,31 @@ $(function () {
             if (uiStorage.billingCheckbox.is(':checked')) {
                 //switch to monthly
 
-                uiStorage.explorerCostAmount.html(packageCostPerMonth.explorerUSDMonthly);
-                uiStorage.byoCostAmount.html(packageCostPerMonth.byoUSDMonthly);
-                uiStorage.pnpCostAmount.html(packageCostPerMonth.pnpUSDMonthly);
-                uiStorage.ventureCostAmount.html(packageCostPerMonth.ventureUSDMonthly);
+                uiStorage.liteCostAmount.html(packageCostPerMonth.liteUSDMonthly);
+                uiStorage.proCostAmount.html(packageCostPerMonth.proUSDMonthly);
+                uiStorage.plusCostAmount.html(packageCostPerMonth.plusUSDMonthly);
+                uiStorage.growCostAmount.html(packageCostPerMonth.growUSDMonthly);
 
 
                 //updating cost amount label on the left hand side
-                uiStorage.explorerCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.explorerUSDMonthly);
-                });
-                uiStorage.byoCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.byoUSDMonthly);
-                });
-                uiStorage.pnpCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.pnpUSDMonthly);
-                });
-
-                uiStorage.ventureCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.ventureUSDMonthly);
-                });
-
-
+                uiStorage.liteCostAmountLeft.html(packageCostPerMonth.liteUSDMonthly);
+                uiStorage.proCostAmountLeft.html(packageCostPerMonth.proUSDMonthly);
+                uiStorage.plusCostAmountLeft.html(packageCostPerMonth.plusUSDMonthly);
+                uiStorage.growCostAmountLeft.html(packageCostPerMonth.growUSDMonthly);
 
             } else {
                 //alert("switch to annually");
-                uiStorage.explorerCostAmount.html(packageCostPerMonth.explorerUSDAnnual);
-                uiStorage.byoCostAmount.html(packageCostPerMonth.byoUSDAnnual);
-                uiStorage.pnpCostAmount.html(packageCostPerMonth.pnpUSDAnnual);
-                uiStorage.ventureCostAmount.html(packageCostPerMonth.ventureUSDAnnual);
+                uiStorage.liteCostAmount.html(packageCostPerMonth.liteUSDAnnual);
+                uiStorage.proCostAmount.html(packageCostPerMonth.proUSDAnnual);
+                uiStorage.plusCostAmount.html(packageCostPerMonth.plusUSDAnnual);
+                uiStorage.growCostAmount.html(packageCostPerMonth.growUSDAnnual);
 
 
-                uiStorage.explorerCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.explorerUSDAnnual);
-                });
-                uiStorage.byoCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.byoUSDAnnual);
-                });
-                uiStorage.pnpCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.pnpUSDAnnual);
-                });
-                uiStorage.ventureCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.ventureUSDAnnual);
-                });
-
+                //updating cost amount label on the left hand side
+                uiStorage.liteCostAmountLeft.html(packageCostPerMonth.liteUSDAnnual);
+                uiStorage.proCostAmountLeft.html(packageCostPerMonth.proUSDAnnual);
+                uiStorage.plusCostAmountLeft.html(packageCostPerMonth.plusUSDAnnual);
+                uiStorage.growCostAmountLeft.html(packageCostPerMonth.growUSDAnnual);
             }
 
             uiStorage.currencyText.each(function () {
@@ -773,46 +304,46 @@ $(function () {
             //switching to aud
             if (uiStorage.billingCheckbox.is(':checked')) {
                 //alert("switch to monthly");
-                uiStorage.explorerCostAmount.html(packageCostPerMonth.explorerAUDMonthly);
-                uiStorage.byoCostAmount.html(packageCostPerMonth.byoAUDMonthly);
-                uiStorage.pnpCostAmount.html(packageCostPerMonth.pnpAUDMonthly);
-                uiStorage.ventureCostAmount.html(packageCostPerMonth.ventureAUDMonthly);
+                uiStorage.liteCostAmount.html(packageCostPerMonth.liteAUDMonthly);
+                uiStorage.proCostAmount.html(packageCostPerMonth.proAUDMonthly);
+                uiStorage.plusCostAmount.html(packageCostPerMonth.plusAUDMonthly);
+                uiStorage.growCostAmount.html(packageCostPerMonth.growAUDMonthly);
 
 
 
-                uiStorage.explorerCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.explorerAUDMonthly);
+                uiStorage.liteCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.liteAUDMonthly);
                 });
-                uiStorage.byoCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.byoAUDMonthly);
+                uiStorage.proCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.proAUDMonthly);
                 });
-                uiStorage.pnpCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.pnpAUDMonthly);
+                uiStorage.plusCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.plusAUDMonthly);
                 });
-                uiStorage.ventureCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.ventureAUDMonthly);
+                uiStorage.growCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.growAUDMonthly);
                 });
 
 
             } else {
                 //alert("switch to annually");
-                uiStorage.explorerCostAmount.html(packageCostPerMonth.explorerAUDAnnual);
-                uiStorage.byoCostAmount.html(packageCostPerMonth.byoAUDAnnual);
-                uiStorage.pnpCostAmount.html(packageCostPerMonth.pnpAUDAnnual);
-                uiStorage.ventureCostAmount.html(packageCostPerMonth.ventureAUDAnnual);
+                uiStorage.liteCostAmount.html(packageCostPerMonth.liteAUDAnnual);
+                uiStorage.proCostAmount.html(packageCostPerMonth.proAUDAnnual);
+                uiStorage.plusCostAmount.html(packageCostPerMonth.plusAUDAnnual);
+                uiStorage.growCostAmount.html(packageCostPerMonth.growAUDAnnual);
 
 
-                uiStorage.explorerCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.explorerAUDAnnual);
+                uiStorage.liteCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.liteAUDAnnual);
                 });
-                uiStorage.byoCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.byoAUDAnnual);
+                uiStorage.proCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.proAUDAnnual);
                 });
-                uiStorage.pnpCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.pnpAUDAnnual);
+                uiStorage.plusCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.plusAUDAnnual);
                 });
-                uiStorage.ventureCostAmountLeft.each(function () {
-                    $(this).html(packageCostPerMonth.ventureAUDAnnual);
+                uiStorage.growCostAmountLeft.each(function () {
+                    $(this).html(packageCostPerMonth.growAUDAnnual);
                 });
             }
 
@@ -842,18 +373,18 @@ $(function () {
             if (uiStorage.billingCheckbox.is(':checked')) {
                 //switch to monthly
 
-                uiStorage.pricingTableAmountExplorer.html(packageCostPerMonth.explorerUSDMonthly);
-                uiStorage.pricingTablAmounteByo.html(packageCostPerMonth.byoUSDMonthly);
-                uiStorage.pricingTableAmountPnp.html(packageCostPerMonth.pnpUSDMonthly);
-                uiStorage.pricingTableAmountVenture.html(packageCostPerMonth.ventureUSDMonthly);
+                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDMonthly);
+                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proUSDMonthly);
+                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDMonthly);
+                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDMonthly);
 
 
             } else {
                 //alert("switch to annually");
-                uiStorage.pricingTableAmountExplorer.html(packageCostPerMonth.explorerUSDAnnual);
-                uiStorage.pricingTablAmounteByo.html(packageCostPerMonth.byoUSDAnnual);
-                uiStorage.pricingTableAmountPnp.html(packageCostPerMonth.pnpUSDAnnual);
-                uiStorage.pricingTableAmountVenture.html(packageCostPerMonth.ventureUSDAnnual);
+                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDAnnual);
+                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proUSDAnnual);
+                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDAnnual);
+                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDAnnual);
 
             }
 
@@ -866,17 +397,17 @@ $(function () {
             //switching to aud
             if (uiStorage.billingCheckbox.is(':checked')) {
                 //alert("switch to monthly");
-                uiStorage.pricingTableAmountExplorer.html(packageCostPerMonth.explorerAUDMonthly);
-                uiStorage.pricingTablAmounteByo.html(packageCostPerMonth.byoAUDMonthly);
-                uiStorage.pricingTableAmountPnp.html(packageCostPerMonth.pnpAUDMonthly);
-                uiStorage.pricingTableAmountVenture.html(packageCostPerMonth.ventureAUDMonthly);
+                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDMonthly);
+                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proAUDMonthly);
+                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDMonthly);
+                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDMonthly);
 
             } else {
                 //alert("switch to annually");
-                uiStorage.pricingTableAmountExplorer.html(packageCostPerMonth.explorerAUDAnnual);
-                uiStorage.pricingTablAmounteByo.html(packageCostPerMonth.byoAUDAnnual);
-                uiStorage.pricingTableAmountPnp.html(packageCostPerMonth.pnpAUDAnnual);
-                uiStorage.pricingTableAmountVenture.html(packageCostPerMonth.ventureAUDAnnual);
+                uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDAnnual);
+                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proAUDAnnual);
+                uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDAnnual);
+                uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDAnnual);
 
 
             }
