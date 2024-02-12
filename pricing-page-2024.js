@@ -51,7 +51,7 @@ $(function () {
         //pricing table ui storage stuff
         //amount in the table header
         pricingTableAmountLite: $("#pricing-table-amount-lite"),
-        pricingTablAmountePro: $("#pricing-table-amount-pro"),
+        pricingTablAmountPro: $("#pricing-table-amount-pro"),
         pricingTableAmountPlus: $("#pricing-table-amount-plus"),
         pricingTableAmountGrow: $("#pricing-table-amount-grow"),
 
@@ -473,7 +473,7 @@ $(function () {
 
                 //updating cost amount label on pricing table
                 uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDAnnual);
-                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proAUDAnnual);
+                uiStorage.pricingTablAmountPro.html(packageCostPerMonth.proAUDAnnual);
                 uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDAnnual);
                 uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDAnnual);
 
