@@ -51,7 +51,7 @@ $(function () {
         //pricing table ui storage stuff
         //amount in the table header
         pricingTableAmountLite: $("#pricing-table-amount-lite"),
-        pricingTablAmountPro: $("#pricing-table-amount-pro"),
+        pricingTableAmountPro: $("#pricing-table-amount-pro"),
         pricingTableAmountPlus: $("#pricing-table-amount-plus"),
         pricingTableAmountGrow: $("#pricing-table-amount-grow"),
 
@@ -331,7 +331,7 @@ $(function () {
 
                 //updating cost amount label on pricing table
                 uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDMonthly);
-                uiStorage.pricingTablAmountPro.html(packageCostPerMonth.proUSDMonthly);
+                uiStorage.pricingTableAmountPro.html(packageCostPerMonth.proUSDMonthly);
                 uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDMonthly);
                 uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDMonthly);
 
@@ -368,7 +368,7 @@ $(function () {
 
                 //updating cost amount label on pricing table
                 uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDAnnual);
-                uiStorage.pricingTablAmountPro.html(packageCostPerMonth.proUSDAnnual);
+                uiStorage.pricingTableAmountPro.html(packageCostPerMonth.proUSDAnnual);
                 uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDAnnual);
                 uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDAnnual);
 
@@ -435,7 +435,7 @@ $(function () {
 
                 //updating cost amount label on pricing table
                 uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDMonthly);
-                uiStorage.pricingTablAmountPro.html(packageCostPerMonth.proAUDMonthly);
+                uiStorage.pricingTableAmountPro.html(packageCostPerMonth.proAUDMonthly);
                 uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDMonthly);
                 uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDMonthly);
 
@@ -473,7 +473,7 @@ $(function () {
 
                 //updating cost amount label on pricing table
                 uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteAUDAnnual);
-                uiStorage.pricingTablAmountPro.html(packageCostPerMonth.proAUDAnnual);
+                uiStorage.pricingTableAmountPro.html(packageCostPerMonth.proAUDAnnual);
                 uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusAUDAnnual);
                 uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growAUDAnnual);
 
