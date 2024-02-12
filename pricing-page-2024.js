@@ -331,7 +331,7 @@ $(function () {
 
                 //updating cost amount label on pricing table
                 uiStorage.pricingTableAmountLite.html(packageCostPerMonth.liteUSDMonthly);
-                uiStorage.pricingTablAmountePro.html(packageCostPerMonth.proUSDMonthly);
+                uiStorage.pricingTablAmountPro.html(packageCostPerMonth.proUSDMonthly);
                 uiStorage.pricingTableAmountPlus.html(packageCostPerMonth.plusUSDMonthly);
                 uiStorage.pricingTableAmountGrow.html(packageCostPerMonth.growUSDMonthly);
 
