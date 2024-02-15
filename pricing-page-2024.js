@@ -85,22 +85,22 @@ $(function () {
 
     //2024
     var packageCostPerMonth = {
-        liteUSDAnnual: "18",
+        liteUSDAnnual: "19",
         liteUSDMonthly: "20",
         liteAUDAnnual: "28",
         liteAUDMonthly: "30",
 
         proUSDAnnual: "55",
         proUSDMonthly: "60",
-        proAUDAnnual: "75",
+        proAUDAnnual: "74",
         proAUDMonthly: "80",
 
-        plusUSDAnnual: "90",
+        plusUSDAnnual: "91",
         plusUSDMonthly: "99",
-        plusAUDAnnual: "127",
+        plusAUDAnnual: "128",
         plusAUDMonthly: "139",
 
-        growUSDAnnual: "164",
+        growUSDAnnual: "165",
         growUSDMonthly: "179",
         growAUDAnnual: "238",
         growAUDMonthly: "259"
@@ -109,17 +109,17 @@ $(function () {
 
     //2024
     var packageCostAmountPerYear = {
-        liteUSDPerYear: "216",
-        liteAUDPerYear: "226",
+        liteUSDPerYear: "220",
+        liteAUDPerYear: "330",
 
         proUSDPerYear: "660",
-        proAUDPerYear: "900",
+        proAUDPerYear: "880",
 
-        plusUSDPerYear: "1080",
-        plusAUDPerYear: "1524",
+        plusUSDPerYear: "1089",
+        plusAUDPerYear: "1529",
 
-        growUSDPerYear: "1968",
-        growAUDPerYear: "2856",
+        growUSDPerYear: "1969",
+        growAUDPerYear: "2849",
     }
 
     var currencyTextAndSign = {
