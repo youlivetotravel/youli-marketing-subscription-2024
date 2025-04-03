@@ -186,7 +186,7 @@ $(function () {
     //packageSelectionRadioButton: $(".package-card-radio-button"),
 
 
-    uiStorage.packageCardLeftLite.show();
+    uiStorage.packageCardLeftPlus.show();
     //the display of the rest are set in the designer
     //because those are hidden on desktop but shown on mobile !
     // uiStorage.packageCardLeftBYO.hide();
